@@ -1,6 +1,6 @@
-import {createContext, useContext, useEffect, useState} from 'react'
-import {fakeFetchCrypto, fetchAssets} from "../api.js";
-import {percentDifferance} from "../utils.js";
+import { createContext, useContext, useEffect, useState } from 'react'
+import { fakeFetchCrypto, fetchAssets } from '../api.js'
+import { percentDifferance } from '../utils.js'
 
 const CryptoContext = createContext({
   assets: [],
@@ -16,6 +16,7 @@ function mapAssets(assets, result) {
       growPercent: percentDifferance(asset.price, coin.price),
       totalAmount: coin.price * asset.amount,
       totalProfit: coin.price * asset.amount - asset.amount * asset.price,
+      name: coin.name,
       ...asset,
     }
   })
